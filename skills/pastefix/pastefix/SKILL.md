@@ -89,7 +89,7 @@ Allowed silent fixes:
 
 Forbidden:
 
-- Changing names, numbers, dates, URLs, code, or quoted material.
+- Changing names, numbers, dates, URLs, code, or the content of quoted material (mode-driven casing changes are allowed).
 - "Fixing" dialect, profanity, or informal grammar in Default or Short unless Formal was named.
 - Adding a title, hashtags, or emoji the source did not have (Funny may add at most one small playful mark if it fits).
 
