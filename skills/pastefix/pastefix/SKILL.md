@@ -21,7 +21,7 @@ Take the user's pasted (or provided) text and return a cleaned version according
 
 ## Default mode (no mode named)
 
-This is the standard theme.
+This is the standard default behavior.
 
 - Output non-code, non-URL, non-quoted text in lowercase (including the first letter of sentences and the pronoun I as i).
 - Do not change wording beyond what is required to keep the text readable after lowercasing.
