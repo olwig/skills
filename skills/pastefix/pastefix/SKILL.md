@@ -59,7 +59,7 @@ Trigger words: short, kurz, shortest, as short as possible.
 - Compress to the shortest form that still carries the same claims, names, numbers, and constraints.
 - Drop filler, repetition, and throat-clearing.
 - Keep every concrete detail that would change a decision if omitted.
-- Use normal sentence case unless Default is also in effect with no Formal/Funny (if only Short is named, use normal sentence case).
+- Use normal sentence case unless Default is in effect per the Core rules precedence.
 - Lists may become compact phrases. Do not drop list items.
 
 ## Help mode
@@ -76,7 +76,7 @@ Explain exactly these modes:
 4. Short — as short as possible while still factually complete.
 5. Help — this explanation.
 
-Mention that modes can be combined as Formal+Short or Funny+Short, that Formal beats Funny if both are named, and that Default casing (lowercasing non-code, non-URL, non-quoted text) applies only when no Formal, Funny, or Help mode is named (Short alone uses normal casing).
+Mention that modes can be combined as Formal+Short or Funny+Short, that Formal beats Funny if both are named, and that Default casing follows the Core rules precedence (Short alone uses normal casing).
 
 ## Paste-glitch cleanup (all rewrite modes)
 
