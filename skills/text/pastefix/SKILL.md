@@ -1,6 +1,6 @@
 ---
 name: pastefix
-description: Clean pasted text without changing meaning or language unless a mode is named, while allowing small paste-glitch cleanup. Trigger on Paste Fix, paste-fix, pasted text cleanup, fix this paste, lowercase paste, formal paste, funny paste, short paste, or help for paste-fix modes. Default lowercases non-code/non-URL/non-quoted text and preserves structure. Modes are formal, funny, short, and help.
+description: Clean pasted text without changing meaning or language unless a mode is named, while allowing small paste-glitch cleanup. Trigger on Paste Fix, paste-fix, pasted text cleanup, fix this paste, lowercase paste, formal paste, funny paste, short paste, or help for paste-fix modes. Default fixes spelling/grammar and lowercases non-code/non-URL/non-quoted text while preserving structure. Modes are formal, funny, short, and help.
 ---
 
 # Paste Fix
@@ -24,7 +24,7 @@ Take the user's pasted (or provided) text and return a cleaned version according
 This is the standard default behavior.
 
 - Output non-code, non-URL, non-quoted text in lowercase (including the first letter of sentences and the pronoun I as i).
-- Do not change wording beyond what is required to keep the text readable after lowercasing.
+- Fix spelling, punctuation, and grammar problems in non-code, non-URL, non-quoted text while keeping the same meaning and overall structure.
 - Do not lengthen or shorten.
 - Do not make it more formal or funnier.
 - Keep punctuation and line breaks as in the source, only fixing accidental double spaces or broken wrap artifacts if they are clearly paste glitches (e.g. a hyphenated line-break mid-word may be rejoined). Do not "improve" style.
@@ -70,7 +70,7 @@ When Help is requested, ignore any paste and explain the modes in the language o
 
 Explain exactly these modes:
 
-1. Default — no extra mode named. Lowercase non-code, non-URL, non-quoted text only. Same language, same meaning, same length. Clean paste glitches only.
+1. Default — no extra mode named. Fix spelling/grammar/punctuation in non-code, non-URL, non-quoted text and lowercase it. Same language, same meaning, same length. Clean paste glitches only.
 2. Formal — slightly more formal wording, same meaning, not padded.
 3. Funny — same meaning with a light joke or playful tone, not a rewrite for laughs only.
 4. Short — as short as possible while still factually complete.
@@ -90,7 +90,7 @@ Allowed silent fixes:
 Forbidden:
 
 - Changing names, numbers, dates, URLs, code, or quoted material content.
-- "Fixing" dialect, profanity, or informal grammar in Default or Short unless Formal was named.
+- "Fixing" dialect or profanity in Default or Short unless Formal was named.
 - Adding a title, hashtags, or emoji the source did not have (Funny may add at most one small playful mark if it fits).
 
 ## Empty or missing source

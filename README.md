@@ -8,7 +8,7 @@ They are not limited to Copilot. Any chat/agent client that supports GitHub Skil
 
 - `grok-build-version`: fetches the published Grok Build CLI/harness channel pointer (`stable`, `alpha`, or `enterprise`) from xAI install endpoints, with `install.sh` inspection as a fallback when pointer resolution breaks. This is the shipped binary version, not a GitHub tag.
 - `grok-build-commit`: maps a Grok Build version number (for example `1.0.13`) to the oldest commit where `crates/codegen/xai-grok-version/Cargo.toml` changes to that version. Later commits that still contain the same version are not valid pins for that version bump. This helps because Grok Build upstream is internal at x.ai and the public GitHub mirror does not provide release tags or an official channel-to-commit mapping.
-- `pastefix`: cleans pasted text while preserving language and meaning, with default lowercase mode plus `formal`, `funny`, `short`, and `help` modes.
+- `pastefix`: cleans pasted text while preserving language and meaning, with default spelling/grammar cleanup plus lowercase output and `formal`, `funny`, `short`, and `help` modes.
 
 ## Install and manage with `gh skill`
 
