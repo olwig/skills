@@ -2,11 +2,11 @@
 name: grok-build-version
 description: >
   Reads the live Grok Build CLI/harness version from official xAI channel
-  pointers (stable, alpha, enterprise), matching https://x.ai/cli/install.sh.
-  That string is the prebuilt binary xAI publishes. Use for Grok Build
-  version, x.ai/cli/stable, channel pointer, or /grok-build-version. Not
-  for the local grok binary, grok --version, update status, GitHub tags,
-  or chat model names such as Grok 4.6. For a GitHub SHA, use
+  pointers (stable, alpha, enterprise), matching the published install
+  flow. That string is the prebuilt binary xAI publishes. Use for Grok
+  Build version, channel pointer, or /grok-build-version. Not for the
+  local grok binary, grok --version, update status, GitHub tags, or chat
+  model names such as Grok 4.6. For a GitHub SHA, use
   /grok-build-commit.
 ---
 
@@ -33,7 +33,7 @@ npm dist-tags and https://x.ai/build/changelog are context only. The pointer win
 
 `xai-org/grok-build` is periodic snapshots of an internal xAI monorepo. xAI does not publish GitHub tags or any official map from a channel version to a commit. There is no 1:1 mapping: you cannot say “stable 1.0.13 is commit X” from this skill.
 
-If the user needs a GitHub SHA / PKGBUILD pin, use `grok-build-commit` with the version **number** found here (not the channel name).
+If the user needs a GitHub SHA for a specific published version, use `grok-build-commit` with the version **number** found here (not the channel name).
 
 ## Channel
 

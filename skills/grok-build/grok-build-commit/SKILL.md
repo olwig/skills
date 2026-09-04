@@ -2,12 +2,12 @@
 name: grok-build-commit
 description: >
   Best-effort GitHub SHA on xai-org/grok-build for a Grok Build version
-  string (e.g. 1.0.13), for PKGBUILD pins. The public repo is monorepo
-  snapshots; xAI publishes no tags. Use the first squash that sets
-  xai-grok-version to that version. Triggers: "github commit for grok
-  1.0.13", PKGBUILD hash, first labeled commit, /grok-build-commit. Not
-  an official channel→commit map and not the prebuilt binary. For the
-  published binary version, use /grok-build-version.
+  string (e.g. 1.0.13). The public repo is monorepo snapshots; xAI
+  publishes no tags. Use the first squash that sets xai-grok-version to
+  that version. Triggers: "github commit for grok 1.0.13",
+  version-to-commit lookup, first labeled commit, /grok-build-commit.
+  Not an official channel→commit map and not the prebuilt binary. For
+  the published binary version, use /grok-build-version.
 ---
 
 # Grok Build commit
