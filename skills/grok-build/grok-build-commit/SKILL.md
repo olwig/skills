@@ -1,35 +1,35 @@
 ---
 name: grok-build-commit
 description: >
-  Finds the best-effort GitHub SHA in `xai-org/grok-build` for a Grok
-  Build version string such as `1.0.13`. Use the first public snapshot
-  commit that sets `xai-grok-version` to that version. Use for
-  version-to-commit lookups and /grok-build-commit. This is not an
-  official channel-to-commit map and not the published binary version.
-  For the published version number, use /grok-build-version.
+  Finds the best-effort GitHub SHA in `xai-org/grok-build` for an exact
+  Grok Build version string such as `1.0.13`. The user must provide the
+  version. Match the first public snapshot commit that sets
+  `xai-grok-version` to that exact version. Use for version-to-commit
+  lookups and /grok-build-commit. This is not a channel lookup and not
+  the published binary version.
 ---
 
 # Grok Build commit
 
-Use this skill when you have a **version number** and need the matching GitHub commit from the public snapshot repo.
+Use this skill when the user gives an exact **version number** and needs the matching GitHub commit from the upstream GitHub snapshot repo.
 
 This is not the prebuilt binary version and not an official xAI pin.
 
-If the user gives a channel name (`stable`, `alpha`, `enterprise`) or no version at all, first get the version number from `grok-build-version`, then continue here. Do not fetch channel pointers in this skill. Do not run `grok --version`.
+The user must provide the version exactly. If they do not give a version, ask for it. Never fetch the version externally in this skill. Do not infer it from `stable`, `alpha`, or `enterprise`. Do not run `grok --version`.
 
 ## What the SHA is
 
 Repo: https://github.com/xai-org/grok-build.git
 
-This repo is made of periodic public snapshots of an internal monorepo. Snapshot commits usually say `Synced from monorepo`. There are no GitHub tags or releases for this mapping. `SOURCE_REV` is the internal monorepo SHA, not the GitHub SHA you should return.
+`xai-org/grok-build` is the upstream GitHub repo. It is a public snapshot repo of xAI's internal monorepo. Snapshot commits usually say `Synced from monorepo`. There are no GitHub tags or releases for this mapping. `SOURCE_REV` is the internal monorepo SHA, not the GitHub SHA you should return.
 
 Return the **first** commit (the oldest one on `main`) where
 
 `crates/codegen/xai-grok-version/Cargo.toml`
 
-has `version = "<ver>"`. That crate tracks the CLI version. Later snapshots may still show the same version string. Do not return `HEAD` just because the same version is still there.
+has `version = "<ver>"`. That crate tracks the CLI version. Match the first appearance of that exact version string, without trying to place it in a stable, alpha, or enterprise channel. Later snapshots may still show the same version string. Do not return `HEAD` just because the same version is still there.
 
-GitHub has no channels. Some versions, especially alpha, may not be mirrored yet. If the search finds nothing, say that clearly.
+Do not treat the given version as belonging to any upstream channel. Just match the first appearance of that exact version. If the search finds nothing, say that clearly.
 
 ## Fetch the repo
 
@@ -73,4 +73,19 @@ Commit: bb7f39d5858cbf5e00de639367f59debbdcb0138
 Parent: bc7f02eddd3d84085849dc19ed216f11c23b0571 (1.0.12)
 Repo: https://github.com/xai-org/grok-build
 Note: snapshot heuristic; not an official xAI pin
+```
+
+If the user asks for JSON, return a JSON object instead, for example:
+
+```json
+{
+  "version": "1.0.13",
+  "commit": "bb7f39d5858cbf5e00de639367f59debbdcb0138",
+  "parent": {
+    "commit": "bc7f02eddd3d84085849dc19ed216f11c23b0571",
+    "version": "1.0.12"
+  },
+  "repo": "https://github.com/xai-org/grok-build",
+  "note": "snapshot heuristic; not an official xAI pin"
+}
 ```

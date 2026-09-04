@@ -58,7 +58,7 @@ Accept only values that match the installer regex:
 ^[0-9]+\.[0-9]+\.[0-9]+(-[A-Za-z0-9._]+)?$
 ```
 
-Valid forms are `X.Y.Z` and `X.Y.Z-suffix`. Reject empty bodies, HTML, and anything else.
+Published versions are usually plain `X.Y.Z`. Keep suffix support because Grok Build history also includes versions such as `0.2.0-dev`. Reject empty bodies, HTML, and anything else.
 
 For all channels, fetch each independently so one failure does not hide the others.
 
