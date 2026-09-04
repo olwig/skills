@@ -66,7 +66,7 @@ Trigger words: short, kurz, shortest, as short as possible.
 
 Trigger words: help, hilfe, modes, modi.
 
-When Help is requested, ignore any paste and explain the modes in the user's language; if the language is unclear, use English.
+When Help is requested, ignore any paste and explain the modes in the language of the help request; if that language is unclear, use English.
 
 Explain exactly these modes:
 
