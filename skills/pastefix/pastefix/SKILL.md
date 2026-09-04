@@ -42,7 +42,7 @@ Trigger words: formal, Formel, formell.
 
 ## Funny mode
 
-Trigger words: funny, funnier, joki, jokey, joke.
+Trigger words: funny, funnier, jokey, joke.
 
 - Keep the original language and the same facts.
 - Lightly tint the text with dry humor, one short quip, or a playful aside — only where it does not bury the point.
