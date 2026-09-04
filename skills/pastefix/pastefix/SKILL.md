@@ -23,7 +23,7 @@ Take the user's pasted (or provided) text and return a cleaned version according
 
 This is the standard theme.
 
-- Output the entire text in lowercase (including the first letter of sentences and the pronoun I as i).
+- Output non-code, non-URL, non-quoted text in lowercase (including the first letter of sentences and the pronoun I as i).
 - Do not change wording beyond what is required to keep the text readable after lowercasing.
 - Do not lengthen or shorten.
 - Do not make it more formal or funnier.
@@ -70,13 +70,13 @@ When Help is requested, ignore any paste and explain the modes in the user's lan
 
 Explain exactly these modes:
 
-1. Default — no extra mode named. All lowercase. Same language, same meaning, same length. Clean paste glitches only.
+1. Default — no extra mode named. Lowercase non-code, non-URL, non-quoted text only. Same language, same meaning, same length. Clean paste glitches only.
 2. Formal — slightly more formal wording, same meaning, not padded.
 3. Funny — same meaning with a light joke or playful tone, not a rewrite for laughs only.
 4. Short — as short as possible while still factually complete.
 5. Help — this explanation.
 
-Mention that modes can be combined as Formal+Short or Funny+Short, that Formal beats Funny if both are named, and that Default casing (all lowercase) applies only when no Formal, Funny, or Help mode is named (Short alone uses normal casing).
+Mention that modes can be combined as Formal+Short or Funny+Short, that Formal beats Funny if both are named, and that Default casing (lowercasing non-code, non-URL, non-quoted text) applies only when no Formal, Funny, or Help mode is named (Short alone uses normal casing).
 
 ## Paste-glitch cleanup (all rewrite modes)
 
@@ -89,7 +89,7 @@ Allowed silent fixes:
 
 Forbidden:
 
-- Changing names, numbers, dates, URLs, code, or the content of quoted material (mode-driven casing changes are allowed).
+- Changing names, numbers, dates, URLs, code, or quoted material content.
 - "Fixing" dialect, profanity, or informal grammar in Default or Short unless Formal was named.
 - Adding a title, hashtags, or emoji the source did not have (Funny may add at most one small playful mark if it fits).
 
