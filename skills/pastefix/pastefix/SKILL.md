@@ -1,6 +1,6 @@
 ---
 name: pastefix
-description: Clean pasted text without changing meaning, language, or length unless a mode is named. Trigger on Paste Fix, paste-fix, pasted text cleanup, fix this paste, lowercase paste, formal paste, funny paste, short paste, or help for paste-fix modes. Default is all-lowercase with the same content and language. Modes are formal, funny, short, and help.
+description: Clean pasted text without changing meaning or language unless a mode is named, while allowing small paste-glitch cleanup. Trigger on Paste Fix, paste-fix, pasted text cleanup, fix this paste, lowercase paste, formal paste, funny paste, short paste, or help for paste-fix modes. Default lowercases non-code/non-URL/non-quoted text and preserves structure. Modes are formal, funny, short, and help.
 ---
 
 # Paste Fix
