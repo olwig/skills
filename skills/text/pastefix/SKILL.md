@@ -90,7 +90,7 @@ Allowed silent fixes:
 Forbidden:
 
 - Changing names, numbers, dates, URLs, code, or quoted material content.
-- "Fixing" dialect or profanity in Default or Short unless Formal was named.
+- "Fixing" dialect, profanity, or intentional style/voice in Default or Short unless Formal was named (mechanical spelling/punctuation/grammar correction in Default is still allowed).
 - Adding a title, hashtags, or emoji the source did not have (Funny may add at most one small playful mark if it fits).
 
 ## Empty or missing source
