@@ -1,38 +1,39 @@
 ---
 name: grok-build-commit
 description: >
-  Best-effort GitHub SHA on xai-org/grok-build for a Grok Build version
-  string (e.g. 1.0.13). The public repo is monorepo snapshots; xAI
-  publishes no tags. Use the first squash that sets xai-grok-version to
-  that version. Triggers: "github commit for grok 1.0.13",
-  version-to-commit lookup, first labeled commit, /grok-build-commit.
-  Not an official channel→commit map and not the prebuilt binary. For
-  the published binary version, use /grok-build-version.
+  Finds the best-effort GitHub SHA in `xai-org/grok-build` for a Grok
+  Build version string such as `1.0.13`. Use the first public snapshot
+  commit that sets `xai-grok-version` to that version. Use for
+  version-to-commit lookups and /grok-build-commit. This is not an
+  official channel-to-commit map and not the published binary version.
+  For the published version number, use /grok-build-version.
 ---
 
 # Grok Build commit
 
-Map a **version number** to a GitHub commit on the public snapshot repo. This is not the prebuilt binary and not an official xAI pin.
+Use this skill when you have a **version number** and need the matching GitHub commit from the public snapshot repo.
 
-If the user names a channel (stable / alpha / enterprise) or does not give a version, get the number from `grok-build-version`, then continue here. Do not fetch channel pointers in this skill. Do not run `grok --version`.
+This is not the prebuilt binary version and not an official xAI pin.
+
+If the user gives a channel name (`stable`, `alpha`, `enterprise`) or no version at all, first get the version number from `grok-build-version`, then continue here. Do not fetch channel pointers in this skill. Do not run `grok --version`.
 
 ## What the SHA is
 
 Repo: https://github.com/xai-org/grok-build.git
 
-Periodic squashes of an internal monorepo (commit message `Synced from monorepo`). No GitHub tags or releases. `SOURCE_REV` is the internal monorepo SHA, not this GitHub SHA.
+This repo is made of periodic public snapshots of an internal monorepo. Snapshot commits usually say `Synced from monorepo`. There are no GitHub tags or releases for this mapping. `SOURCE_REV` is the internal monorepo SHA, not the GitHub SHA you should return.
 
-The pin is the **first** commit (oldest on `main`) where
+Return the **first** commit (the oldest one on `main`) where
 
 `crates/codegen/xai-grok-version/Cargo.toml`
 
-has `version = "<ver>"`. That crate is the lockstepped CLI version. Later syncs keep the same string until the next bump — do not use HEAD just because it still shows the version.
+has `version = "<ver>"`. That crate tracks the CLI version. Later snapshots may still show the same version string. Do not return `HEAD` just because the same version is still there.
 
-GitHub has no channels. Alpha often is not mirrored yet; if the pickaxe finds nothing, say so.
+GitHub has no channels. Some versions, especially alpha, may not be mirrored yet. If the search finds nothing, say that clearly.
 
 ## Fetch the repo
 
-Need full history of that file — no `--depth`. If the current repo is already `xai-org/grok-build` with full history, use it. Otherwise clone to a temp dir (do not clone into the user’s project):
+You need full history for that file, so do not use `--depth`. If the current repo is already `xai-org/grok-build` with full history, use it. Otherwise clone to a temp dir, not into the user’s project:
 
 ```bash
 git clone --single-branch https://github.com/xai-org/grok-build.git
@@ -56,7 +57,7 @@ git show "$SHA^:crates/codegen/xai-grok-version/Cargo.toml" | grep '^version'
 # must be the previous version
 ```
 
-If no commit matches, that version has not been mirrored yet. Do not substitute HEAD or a tag.
+If no commit matches, that version has not been mirrored to the public repo yet. Do not substitute `HEAD` or a tag.
 
 Do not use as the GitHub SHA:
 
